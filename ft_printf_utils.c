@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:05:05 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/02/03 23:55:38 by marvin           ###   ########.fr       */
+/*   Updated: 2023/02/03 18:56:52 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_states(char print.spec, va_list to_do, t_printf print)
+int	ft_states(va_list to_do, t_printf print)
 {
 	if (print.spec == 'c')
 		print.len += ft_print_char(va_arg(to_do, int));
