@@ -111,5 +111,3 @@ void	ft_cleaner(t_print print)
 	print.point = 0;
 	print.specifier = 0;
 }
-
-
