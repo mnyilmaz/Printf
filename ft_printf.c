@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:52:14 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/02/03 19:13:28 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/02/03 23:57:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int ft_printf(const char *fmt, ...)
 {
+	t_printf print;
 	va_list to_do;
 	char spec;
 	int len;
@@ -26,19 +27,13 @@ int ft_printf(const char *fmt, ...)
 		if(*(fmt + i) == '%')
 		{
 			i++;
-			spec = *(fmt + i);
-			len += ft_states(spec, to_do);
+			print.spec = *(fmt + i);
+			print.result += ft_states(spec, to_do, print);
 		}
 		else
-			len += ft_print_char(*(fmt + i));
+			print.result += ft_print_char(*(fmt + i));
 		i++;
 	}
 	va_end(to_do);
-	return (len);
-}
-
-#include <stdio.h>
-int main(void)
-{
-	printf("%d\n", ft_printf("%d", 5));
+	return (print.result);
 }
