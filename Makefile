@@ -1,23 +1,24 @@
-NAME: libftprintf.a
+NAME		= libftprintf.a
 
-SRC: ft_printf.c ft_printf_utils.c
+SRCS		= ft_printf.c ft_printf_utils.c
 
-OBJ: ${SRC:s.c=.o}
+OBJS		= ${SRCS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror
-CC = GCC
+CFLAGS 		= -Wall -Wextra -Werror
+CC 			= gcc
 
-$(NAME): $(OBJ)
-  		ar rc $(NAME) $(OBJ)
-		
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+			@ar rc $(NAME) $(OBJS)
+
 clean:
-		rm -f $(OBJ) 
+			@rm -f $(OBJS) 
 
-fclean: clean
-		rm -f $(NAME)
+fclean: 	clean
+			@rm -f $(NAME)
 
-re: fclean all
-
-all: $(NAME)
-
-.PHONY: clean fclean re all
+re:		fclean all
+			@echo "Compiled"
+	
+.PHONY:		all clean fclean re
