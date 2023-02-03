@@ -51,7 +51,7 @@ int main(void)
 	printf("\n");
 	ft_printf("%c", 's');
 	printf("\n");
-	ft_printf("%s", "extraordinary");
+	ft_printf("%s", "extiraordinary");
 	printf("\n");
 	ft_printf("%p", ptr);
 	printf("\n");
@@ -63,9 +63,35 @@ int main(void)
 	printf("\n");
 	ft_printf("%x", 99);
 	printf("\n");
-	ft_printf("%X", 256);
+	printf("%d\n", printf("%X\n", 87787));
+	ft_printf("%d ", ft_printf("%X ", 87787));
 	printf("\n");
 	ft_printf("%%");
+	printf("\n");
 
-	//printf("%d\n", ft_printf("%d", 5));
+	ft_printf("%d", ft_printf("extraordinary"));
+	printf("\n");
+	ft_printf("%d", ft_printf("%c: ", 's'));
+	printf("\n");
+	ft_printf("%d", ft_printf("%s: ", "extiraordinary"));
+	printf("\n");
+	ft_printf("%d", ft_printf("%p: ", ptr));
+	printf("\n");
+	ft_printf("%d", ft_printf("%i: ", -8546));
+	printf("\n");
+	ft_printf("%d", ft_printf("%d: ", 294830));
+	printf("\n");
+	ft_printf("%d", ft_printf("%u: ", 0257));
+	printf("\n");
+	ft_printf("%d", ft_printf("%%: "));
+	printf("\n");
+
+	printf("%d\n", ft_printf("extraordinary"));
+	printf("%d\n", ft_printf("%c: ", 's'));
+	printf("%d\n", ft_printf("%s: ", "extiraordinary"));
+	printf("%d\n", ft_printf("%p: ", ptr));
+	printf("%d\n", ft_printf("%i: ", -8546));
+	printf("%d\n", ft_printf("%d: ", 294830));
+	printf("%d\n", ft_printf("%u: ", 0257));
+	printf("%d\n", ft_printf("%%: "));
 }
