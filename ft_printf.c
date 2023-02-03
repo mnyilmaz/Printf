@@ -51,7 +51,7 @@ int main(void)
 	printf("\n");
 	ft_printf("%c", 's');
 	printf("\n");
-	ft_printf("%s", "extiraordinary");
+	ft_printf("%s", "extraordinary");
 	printf("\n");
 	ft_printf("%p", ptr);
 	printf("\n");
