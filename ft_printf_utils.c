@@ -3,39 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:05:05 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/02/03 18:56:52 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/02/03 23:55:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_states(char spec, va_list to_do)
+int	ft_states(char print.spec, va_list to_do, t_printf print)
 {
-	if (spec == 'c')
-		LEN += ft_print_char(va_arg(to_do, int));
-	else if (spec == 's')
-		LEN += ft_print_str(va_arg(to_do, char*));
-	else if (spec == 'p')
+	if (print.spec == 'c')
+		print.len += ft_print_char(va_arg(to_do, int));
+	else if (print.spec == 's')
+		print.len += ft_print_str(va_arg(to_do, char*));
+	else if (print.spec == 'p')
 	{
 		write(1, "0x", 2);
-		LEN += ft_print_rest(va_arg(to_do, unsigned long), 16, BASE, P1) + 2; //64 bit garantilemesi
+		print.len += ft_print_rest(va_arg(to_do, unsigned long), 16, BASE, P1) + 2; //64 bit garantilemesi
 	}
-	else if (spec == 'i')
-		LEN += ft_print_rest(va_arg(to_do, int), 10, DEC, P2); 
-	else if (spec == 'u')
-		LEN += ft_print_rest(va_arg(to_do, unsigned int), 10, DEC, P2); 
-	else if (spec == 'd')
-		LEN += ft_print_rest(va_arg(to_do, unsigned int), 10, DEC, P2); 
-	else if (spec == 'x')
-		LEN += ft_print_rest(va_arg(to_do, unsigned int), 16, BASE, P2);
-	else if (spec == 'X')
-		LEN += ft_print_rest(va_arg(to_do, unsigned int), 16, BASE_U, P2);
-	else if (spec == '%')
-		LEN += ft_print_char('%');
-	return (LEN);
+	else if (print.spec == 'i')
+		print.len += ft_print_rest(va_arg(to_do, int), 10, DEC, P2); 
+	else if (print.spec == 'u')
+		print.len += ft_print_rest(va_arg(to_do, unsigned int), 10, DEC, P2); 
+	else if (print.spec == 'd')
+		print.len += ft_print_rest(va_arg(to_do, unsigned int), 10, DEC, P2); 
+	else if (print.spec == 'x')
+		print.len += ft_print_rest(va_arg(to_do, unsigned int), 16, BASE, P2);
+	else if (print.spec == 'X')
+		print.len += ft_print_rest(va_arg(to_do, unsigned int), 16, BASE_U, P2);
+	else if (print.spec == '%')
+		print.len += ft_print_char('%');
+	return (print.len);
 }
 
 int	ft_print_char(char c)
@@ -58,7 +58,7 @@ int	ft_print_str(char *s)
 	return (slen);
 }
 
-int	ft_print_rest(long int num, int len, char *base, int point)
+int	ft_print_rest(long long int num, int len, char *base, int point)
 {
 	int	rlen;
 
