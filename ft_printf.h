@@ -6,7 +6,7 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:01:32 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/02/03 18:43:19 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:28:45 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,22 @@
 
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 #define BASE "0123456789abcdef"
 #define BASE_U "0123456789ABCDEF"
 #define DEC "0123456789"
-#define LEN 
-#define P1  1 //ptr
-#define P2  2 //hexa
+#define MIN -2147483648
+#define H_LEN 16
+#define D_LEN 10
 
-typedef	struct s_printf
-{
-	int		len;
-	char	spec;
-	int		result;
-}			t_printf;
-
-int		ft_states(va_list to_do, t_printf print);
+int		ft_states(char spec, va_list to_do);
 int		ft_print_char(char c);
+int		ft_strlen(char *s);
 int		ft_print_str(char *s);
-int		ft_print_rest(long long int num, int len, char *base, int point);
+int    	ft_print_rest(size_t num, size_t base_len, char *base);
+void 	ft_cleaner(t_print *print);
+int		ft_printf(const char *fmt, ...);
+int		ft_print_int(int num);
 
 #endif
