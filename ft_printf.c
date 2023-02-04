@@ -6,26 +6,25 @@
 /*   By: mervyilm <mervyilm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:52:14 by mervyilm          #+#    #+#             */
-/*   Updated: 2023/02/04 15:29:59 by mervyilm         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:42:31 by mervyilm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
-int ft_printf(const char *fmt, ...)
+int	ft_printf(const char *fmt, ...)
 {
-	va_list to_do;
-	char spec;
-	int len;
-	int result;
+	va_list	to_do;
+	char	spec;
+	int		len;
+	int		i;
 
-	result = 0;
 	len = 0;
+	i = 0;
 	va_start(to_do, fmt);
-	int i = 0;
 	while (*(fmt + i))
 	{
-		if(*(fmt + i) == '%')
+		if (*(fmt + i) == '%')
 		{
 			i++;
 			spec = *(fmt + i);
@@ -38,6 +37,7 @@ int ft_printf(const char *fmt, ...)
 	va_end(to_do);
 	return (len);
 }
+
 #include <limits.h>
 #include <stdio.h>
 int main(void)
