@@ -5,7 +5,7 @@ SRCS		= ft_printf.c ft_printf_utils.c
 OBJS		= ${SRCS:.c=.o}
 
 CFLAGS 		= -Wall -Wextra -Werror
-CC 			= gcc
+CC 		= @gcc
 
 all:		$(NAME)
 
@@ -19,6 +19,9 @@ fclean: 	clean
 			@rm -f $(NAME)
 
 re:		fclean all
+
+com:		re
+			@$(CC) $(CFLAGS) $(SRCS) -o t.exe
 			@echo "Compiled"
-	
-.PHONY:		all clean fclean re
+
+.PHONY:		all clean fclean re com
