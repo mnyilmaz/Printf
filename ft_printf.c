@@ -66,12 +66,7 @@ int max(int amount, ...)
 	{
 		current = va_arg(to_do, int);
 		if (current > max)
-		{
 			max = current;
-			current = va_arg(to_do, int);
-		}
-		else
-			max = va_arg(to_do, int);
 		i++;
 	}
 	va_end(to_do);
