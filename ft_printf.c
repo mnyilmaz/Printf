@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
+#include <stdio.h>
 
 int	ft_printf(const char *fmt, ...)
 {
@@ -38,8 +40,68 @@ int	ft_printf(const char *fmt, ...)
 	return (len);
 }
 
-#include <limits.h>
+#include <stdarg.h>
 #include <stdio.h>
+
+int sum(int amount, ...)
+{
+	va_list to_do;
+	va_start(to_do, amount);
+	int sum = 0;
+	int i = 0;
+	
+	while (i < amount)
+	{
+		sum += va_arg(to_do, int);
+		i++;
+	}
+	va_end(to_do);
+	return(sum);
+}
+
+int max(int amount, ...)
+{
+	va_list to_do;
+	va_start(to_do, amount);
+	int max = 0;
+	int i = 0;
+	int current = 0;
+
+	while (i < amount)
+	{
+		current = va_arg(to_do, int);
+		if (current > max)
+		{
+			max = current;
+			current = va_arg(to_do, int);
+		}
+		else
+			max = va_arg(to_do, int);
+		i++;
+	}
+	va_end(to_do);
+	return(max);
+}
+
+int min(int amount, ...)
+{
+	va_list to_do;
+	va_start(to_do, amount);
+	int min = 99999;
+	int i = 0;
+	int current = 0;
+
+	while (i < amount)
+	{
+		current = va_arg(to_do, int);
+		if (current < min)
+			min = current;
+		i++;
+	}
+	va_end(to_do);
+	return(min); 
+}
+
 int main(void)
 {
 	int	a = 5;
@@ -96,4 +158,8 @@ int main(void)
 	printf("%d\n", ft_printf("%d: ", 294830));
 	printf("%d\n", ft_printf("%u: ", 0257));
 	printf("%d\n", ft_printf("%%: "));
+	
+	ft_printf("Sum is: %d\n", sum(2, 1,2,2,3));
+	ft_printf("Max is: %d\n", max(2, 5,4,8,10));
+	ft_printf("Min is: %d\n", min(2, 1,4,8,10));
 }
