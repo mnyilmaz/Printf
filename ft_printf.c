@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <limits.h>
-#include <stdio.h>
 
 int	ft_printf(const char *fmt, ...)
 {
@@ -39,9 +37,6 @@ int	ft_printf(const char *fmt, ...)
 	va_end(to_do);
 	return (len);
 }
-
-#include <stdarg.h>
-#include <stdio.h>
 
 int sum(int amount, ...)
 {
@@ -101,6 +96,8 @@ int min(int amount, ...)
 	va_end(to_do);
 	return(min); 
 }
+
+#include <stdio.h>
 
 int main(void)
 {
